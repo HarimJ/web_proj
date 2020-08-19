@@ -1,0 +1,129 @@
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Webpage Title -->
+    <title>made by me</title>
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        * {
+            font-family: 'East Sea Dokdo', cursive;
+        }
+
+        .wrap {
+            width: 600px;
+            margin: auto;
+        }
+
+        .img {
+            background-image: url('http://zaktan.com/web/product/medium/202007/79c87b0dc79e2addbd73e81c70c4e64e.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 600px;
+            height: 400px;
+        }
+
+        .info {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        h1, h4 {
+            display: inline;
+        }
+
+        .order {
+            text-align: center;
+        }
+
+        .orders {
+            margin-top: 100px;
+        }
+
+        .jb-large {
+            font-size: large;
+        }
+
+        .jb-x-large {
+            font-size: x-large;
+        }
+
+    </style>
+
+    <script>
+        function order() {
+            alert('주문이 완료 되었습니다 🐘')
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <div class="img"></div>
+
+    <div class="info">
+        <h1>동화책</h1>
+        <h4>가격: 5,000원/개</h4>
+        <p class="jb-large">이 동화책은 사실 특별한 힘을 가지고 있어요. 동화책을 읽으면 힐링이 됩니다.</p>
+    </div>
+
+    <div class="info">
+        <h1>주문하기</h1>
+
+        <div class="input-group mb-3">
+            <span class="jb-x-large"> 주문자 성함 :  </span>
+            <input type="text" class="form-control">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="jb-x-large"> 수량 :   </span>
+            <select class="custom-select" id="order-count">
+                <option selected value=""> -- 수량을 선택하세요 --</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="jb-x-large">주소 :  </span>
+            <input type="text" class="form-control" id="order-address" aria-describedby="basic-addon3">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="jb-x-large" id="basic-addon3">전화번호 :  </span>
+            <input type="text" class="form-control" id="order-phone" aria-describedby="basic-addon3">
+        </div>
+
+        <div class="order">
+            <button onclick="order()" type="button" class="btn btn-primary">주문하기</button>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
+```
