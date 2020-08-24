@@ -1,31 +1,268 @@
-<style type="text/css">
-    img.wp-smiley,
-    img.emoji {
-        display: inline !important;
-        border: none !important;
-        box-shadow: none !important;
-        height: 1em !important;
-        width: 1em !important;
-        margin: 0 .07em !important;
-        vertical-align: -0.1em !important;
-        background: none !important;
-        padding: 0 !important;
-    }
-</style>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    </head>
+    <style>
+        * {
+            font-family: 'Song Myung', serif;
+        }
 
-<style>
-    .som-password-error-message,
-    .som-password-sent-message {
-        background-color: #e95749;
-        border-color: #e95749;
-    }
+        .chapter-content {
+            position: absolute;
+            top: 20px;
+            height: calc(100% - 40px);
+            left: 0;
+            width: 100%;
+            color: #322a23;
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
 
-</style>
+        .popup-wrapper .chapters-wrapper {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: calc(100% - 50px);
+            height: calc(100% - 50px);
+            background: #f8f6f0;
+            min-height: 660px;
+        }
 
-<div class="center-wrapper">
-    <div class="center">
-        <div class="close close-popup" data-target="chapters"></div>
+        /*.x-button-wrapper {*/
+        /*    position: absolute;*/
+        /*    right: 0;*/
+        /*    top: 0;*/
+        /*    height: 40px;*/
+        /*    width: 40px;*/
+        /*    cursor: pointer;*/
+        /*    z-index: 99999;*/
+        /*    background: #f8f6f0;*/
+        /*}*/
+
+        .chapter-content {
+            position: absolute;
+            top: 20px;
+            height: calc(100% - 40px);
+            left: 0;
+            width: 100%;
+            color: #322a23;
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+
+        .chapter-content .intro-wrapper {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            -webkit-transform: translateY(30px);
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+            display: none;
+        }
+
+        .chapter-content .left-side {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            padding: 30px 50px;
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+
+        .chapter-content .left-side .chapter-headline {
+            position: relative;
+            padding: 0 80px 0;
+            text-align: center;
+        }
+
+        .chapter-content .left-side .chapter-headline .ribbon {
+            position: relative;
+            height: 60px;
+            margin: auto;
+            display: block;
+        }
+
+        .chapter-content .left-side .chapter-headline h4 {
+            margin-top: 20px;
+        }
+
+        .chapter-content .left-side .chapter-headline h5 {
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .chapter-content .left-side .questions-wrapper {
+            position: relative;
+            margin-top: 30px;
+            padding: 0 0 30px;
+            text-align: center;
+        }
+
+        .chapter-content .right-side {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            padding: 30px 140px;
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+            box-sizing: border-box;
+        }
+
+        .chapter-content .right-side .answer-headline {
+            position: relative;
+        }
+
+        .chapter-content .right-side textarea {
+            border: 0;
+            background: white;
+            margin-top: 20px;
+            height: calc(100% - 80px);
+            width: 600px;
+            padding: 20px;
+            font-family: "HurmeGeometricSans3-Regular";
+            font-size: 18px;
+            line-height: 1.5;
+            text-transform: none;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.5);
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+
+        h5.smaller {
+            font-size: 22px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        .chapter-content .right-side .answer-headline .delete {
+            position: absolute;
+            right: 0;
+            top: 6px;
+            font-size: 15px;
+            border-bottom: 1px solid;
+            cursor: pointer;
+            -webkit-transition: all 0.26s ease-out;
+            transition: all 0.26s ease-out;
+        }
+
+        .chapter-content .next {
+            position: absolute;
+            right: 50px;
+            bottom: 10px;
+            height: 20px;
+            width: 220px;
+            z-index: 9999;
+            cursor: pointer;
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+
+        .chapter-content .prev {
+            position: absolute;
+            left: 50px;
+            bottom: 10px;
+            height: 20px;
+            width: 190px;
+            z-index: 9999;
+            cursor: pointer;
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+
+        .chapter-content .legend {
+            position: absolute;
+            height: 20px;
+            bottom: 10px;
+            width: 300px;
+            left: 50%;
+            margin-left: -150px;
+            text-align: center;
+            z-index: 999;
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+        }
+
+        .chapter-content .legend .ch-number {
+            display: inline-block;
+            border-radius: 50%;
+            border: 1px solid #322a23;
+            width: 20px;
+            height: 20px;
+            margin: 0 3px;
+            text-align: center;
+            line-height: 20px;
+            vertical-align: middle;
+            font-size: 12px;
+            font-family: "HurmeGeometricSans3-SemiBold";
+            background: #f9f6f2;
+            cursor: pointer;
+        }
+
+        .chapter-content .upload-wrapper {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 100%;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            -webkit-transform: translateY(30px);
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+            display: none;
+        }
+
+        .chapter-content .congrats-wrapper {
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            -webkit-transform: translateY(30px);
+            -webkit-transition: all 0.4s ease-out;
+            transition: all 0.4s ease-out;
+            display: none;
+        }
+        .chapter-content .left-side .questions-wrapper .question-wrapper.hidden {
+            transform: translateY(30px);
+            -webkit-transform: translateY(30px);
+            visibility: hidden;
+            opacity: 0;
+        }
+        .chapter-content .left-side .questions-wrapper .question-wrapper.active {
+    display: block;
+}
+
+    </style>
+
+    <body>
         <div class="chapters-wrapper">
             <div class="x-button-wrapper close-popup" data-target="chapters" style="z-index: 999">
                 <div class="x-button">
@@ -53,9 +290,10 @@
                                     <h6>
                                         <strong>
                                             In so many ways we are the families we come from. And unless we share the
-                                            past with the next generations, they won’t know on whose shoulders they
-                                            stand. Here’s where we explore our family tree’s roots and its
-                                            fruits. </strong>
+                                            past
+                                            with the next generations, they won’t know on whose shoulders they stand.
+                                            Here’s
+                                            where we explore our family tree’s roots and its fruits. </strong>
                                     </h6>
                                 </div>
                                 <div class="image-wrapper">
@@ -74,9 +312,7 @@
 
                 <div class="left-side" style="">
                     <div class="chapter-headline">
-                        <img class="ribbon"
-                             src="https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/chapter-1.png"
-                             alt="">
+                        <img class="ribbon" src="https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/chapter-2.png" alt="">
                         <h4>
                             Standing on Their Shoulders: <br>How I Came to be Me </h4>
                         <h5 class="smaller">
@@ -89,47 +325,21 @@
                         <div class="question-wrapper active" id="question-1" data-id="32">
                             <h6 class="" style="font-size: 24px; line-height: 1.3">
                                 <strong>
-                                    What are your most memorable stories about your maternal grandparents? What do you
-                                    know about your mother's experience growing up? </strong>
+                                    학창시절의 당신의 이야기를 들려주세요 </strong>
                             </h6>
                             <h6 style="margin-top: 5px">
-                                Where did your mother’s family come from? What did they do for a living? </h6>
-                            <div class="helpers">
-                                <div class="helper play-audio"
-                                     data-url="https://lifejourneysmedia.com/wp-content/uploads/2018/04/New-Recording1.m4a">
-                                    <audio controls="">
-                                        <source src="" type="audio/ogg">
-                                        <source src="" type="audio/mpeg">
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                    <i class="fa fa-volume-up"></i>
-                                    <div class="tooltip">
-                                        Hear the question
-                                    </div>
-                                </div>
-                                <div class="helper open-inspiration">
-                                    <i class="fa fa-quote-left"></i>
-                                    <div class="tooltip">
-                                        Get some inspiration
-                                    </div>
-                                </div>
-                            </div>
+                                학생일때 가장 재밌었던 일은 무엇인가요? </h6>
+
                             <div class="inspiration-wrapper">
                                 <div class="center-wrapper">
                                     <div class="close close-inspiration"></div>
                                     <div class="center">
                                         <div class="text">
-                                            <div class="x-button-wrapper go-white close-inspiration"
-                                                 style="z-index: 999">
-                                                <div class="x-button">
-                                                    <div class="line top"></div>
-                                                    <div class="line bottom"></div>
-                                                </div>
-                                            </div>
-                                            <i class="fa fa-quote-left"></i>
+<!--                                            <i class="fa fa-quote-left"></i>-->
                                             Lately I have developed a great love for family trees and have come to the
                                             conclusion that, once you begin, you want to delve still deeper into the
-                                            past, and you can keep on making fresh and interesting discoveries.
+                                            past,
+                                            and you can keep on making fresh and interesting discoveries.
                                             <div class="quotee">
                                                 Anne Frank
                                             </div>
@@ -139,262 +349,39 @@
                             </div>
                         </div>
                         <div class="question-wrapper hidden" id="question-2" data-id="33">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    What are your most memorable stories about your paternal grandparents? What was your
-                                    father's experience growing up? </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                                Where did your father’s family come from? What did they do for a living? </h6>
-                            <div class="helpers">
-                                <div class="helper play-audio"
-                                     data-url="https://lifejourneysmedia.com/wp-content/uploads/2018/04/New-Recording2.m4a">
-                                    <audio controls="">
-                                        <source src="" type="audio/ogg">
-                                        <source src="" type="audio/mpeg">
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                    <i class="fa fa-volume-up"></i>
-                                    <div class="tooltip">
-                                        Hear the question
-                                    </div>
-                                </div>
-                                <div class="helper open-inspiration">
-                                    <i class="fa fa-quote-left"></i>
-                                    <div class="tooltip">
-                                        Get some inspiration
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inspiration-wrapper">
-                                <div class="center-wrapper">
-                                    <div class="close close-inspiration"></div>
-                                    <div class="center">
-                                        <div class="text">
-                                            <div class="x-button-wrapper go-white close-inspiration"
-                                                 style="z-index: 999">
-                                                <div class="x-button">
-                                                    <div class="line top"></div>
-                                                    <div class="line bottom"></div>
-                                                </div>
-                                            </div>
-                                            <i class="fa fa-quote-left"></i>
-                                            "The unexamined life is not worth living."
-                                            <div class="quotee">
-                                                Socrates
+                        <h6 class="" style="font-size: 24px; line-height: 1.3">
+                            <strong>
+                                What are your most memorable stories about your paternal grandparents? What was your
+                                father's experience growing up? </strong>
+                        </h6>
+                        <h6 style="margin-top: 5px">
+                            Where did your father’s family come from? What did they do for a living? </h6>
+
+                        <div class="inspiration-wrapper">
+                            <div class="center-wrapper">
+                                <div class="close close-inspiration"></div>
+                                <div class="center">
+                                    <div class="text">
+                                        <div class="x-button-wrapper go-white close-inspiration" style="z-index: 999">
+                                            <div class="x-button">
+                                                <div class="line top"></div>
+                                                <div class="line bottom"></div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="question-wrapper hidden" id="question-3" data-id="34">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    What were your mother's and your father's most significant life
-                                    experiences? </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                                Share how they each grew up, met each other and what they each valued most in
-                                life. </h6>
-                            <div class="helpers">
-                                <div class="helper play-audio"
-                                     data-url="https://lifejourneysmedia.com/wp-content/uploads/2018/04/New-Recording3.m4a">
-                                    <audio controls="">
-                                        <source src="" type="audio/ogg">
-                                        <source src="" type="audio/mpeg">
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                    <i class="fa fa-volume-up"></i>
-                                    <div class="tooltip">
-                                        Hear the question
-                                    </div>
-                                </div>
-                                <div class="helper open-inspiration">
-                                    <i class="fa fa-quote-left"></i>
-                                    <div class="tooltip">
-                                        Get some inspiration
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inspiration-wrapper">
-                                <div class="center-wrapper">
-                                    <div class="close close-inspiration"></div>
-                                    <div class="center">
-                                        <div class="text">
-                                            <div class="x-button-wrapper go-white close-inspiration"
-                                                 style="z-index: 999">
-                                                <div class="x-button">
-                                                    <div class="line top"></div>
-                                                    <div class="line bottom"></div>
-                                                </div>
-                                            </div>
-                                            <i class="fa fa-quote-left"></i>
-                                            History will be kind to me for I intend to write it.
-                                            <div class="quotee">
-                                                Winston Churchill
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="question-wrapper hidden" id="question-4" data-id="35">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    What are your strongest memories of your mother and father? What personality traits
-                                    do you share with them? </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                            </h6>
-                            <div class="helpers">
-                                <div class="helper play-audio"
-                                     data-url="https://lifejourneysmedia.com/wp-content/uploads/2018/04/New-Recording4.m4a">
-                                    <audio controls="">
-                                        <source src="" type="audio/ogg">
-                                        <source src="" type="audio/mpeg">
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                    <i class="fa fa-volume-up"></i>
-                                    <div class="tooltip">
-                                        Hear the question
-                                    </div>
-                                </div>
-                                <div class="helper open-inspiration">
-                                    <i class="fa fa-quote-left"></i>
-                                    <div class="tooltip">
-                                        Get some inspiration
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inspiration-wrapper">
-                                <div class="center-wrapper">
-                                    <div class="close close-inspiration"></div>
-                                    <div class="center">
-                                        <div class="text">
-                                            <div class="x-button-wrapper go-white close-inspiration"
-                                                 style="z-index: 999">
-                                                <div class="x-button">
-                                                    <div class="line top"></div>
-                                                    <div class="line bottom"></div>
-                                                </div>
-                                            </div>
-                                            <i class="fa fa-quote-left"></i>
-                                            If my father was the result of his father and his father’s father, on back
-                                            through the generation of the Irish fogs, I could no longer accept any
-                                            notion of predestination. Someone among the males of this family had to
-                                            break the pattern. It might as well be me. I didn’t have to drink.
-                                            <div class="quotee">
-                                                Pete Hamill
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="question-wrapper hidden" id="question-5" data-id="36">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    Which religious or non-religious traditions were important to your parents and
-                                    grandparents? Share your most powerful memories of celebrating these
-                                    traditions. </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                            </h6>
-                            <div class="helpers">
-                                <div class="helper play-audio"
-                                     data-url="https://lifejourneysmedia.com/wp-content/uploads/2018/04/New-Recording5.m4a">
-                                    <audio controls="">
-                                        <source src="" type="audio/ogg">
-                                        <source src="" type="audio/mpeg">
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                    <i class="fa fa-volume-up"></i>
-                                    <div class="tooltip">
-                                        Hear the question
-                                    </div>
-                                </div>
-                                <div class="helper open-inspiration">
-                                    <i class="fa fa-quote-left"></i>
-                                    <div class="tooltip">
-                                        Get some inspiration
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inspiration-wrapper">
-                                <div class="center-wrapper">
-                                    <div class="close close-inspiration"></div>
-                                    <div class="center">
-                                        <div class="text">
-                                            <div class="x-button-wrapper go-white close-inspiration"
-                                                 style="z-index: 999">
-                                                <div class="x-button">
-                                                    <div class="line top"></div>
-                                                    <div class="line bottom"></div>
-                                                </div>
-                                            </div>
-                                            <i class="fa fa-quote-left"></i>
-                                            It is quite easy for me to think of a God of love mainly because I grew up
-                                            in a family where love was central and where loving relationships were ever
-                                            present.
-                                            <div class="quotee">
-                                                Martin Luther King, Jr.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="question-wrapper hidden" id="question-6" data-id="37">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    Which relative was the greatest influence on you growing up and why? </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                                How did this relationship influence the person you would become? </h6>
-                            <div class="helpers">
-                                <div class="helper play-audio"
-                                     data-url="https://lifejourneysmedia.com/wp-content/uploads/2018/04/New-Recording6.m4a">
-                                    <audio controls="">
-                                        <source src="" type="audio/ogg">
-                                        <source src="" type="audio/mpeg">
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                    <i class="fa fa-volume-up"></i>
-                                    <div class="tooltip">
-                                        Hear the question
-                                    </div>
-                                </div>
-                                <div class="helper open-inspiration">
-                                    <i class="fa fa-quote-left"></i>
-                                    <div class="tooltip">
-                                        Get some inspiration
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inspiration-wrapper">
-                                <div class="center-wrapper">
-                                    <div class="close close-inspiration"></div>
-                                    <div class="center">
-                                        <div class="text">
-                                            <div class="x-button-wrapper go-white close-inspiration"
-                                                 style="z-index: 999">
-                                                <div class="x-button">
-                                                    <div class="line top"></div>
-                                                    <div class="line bottom"></div>
-                                                </div>
-                                            </div>
-                                            <i class="fa fa-quote-left"></i>
-                                            If you cannot get rid of the family skeleton, make it dance!
-                                            <div class="quotee">
-                                                George Bernard Shaw
-                                            </div>
+                                        <i class="fa fa-quote-left"></i>
+                                        "The unexamined life is not worth living."
+                                        <div class="quotee">
+                                            Socrates
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+                    </div>
+
                 </div>
 
                 <div class="right-side" style="">
@@ -463,7 +450,8 @@
                             </p>
                             <p class="small m-t-10">
                                 (Files must be in a jpg or png format. Picture clarity can vary, based upon the quality
-                                of the photo submitted.)
+                                of
+                                the photo submitted.)
                             </p>
                             <form class="upload-form" id="upload-images-form" enctype="multipart/form-data">
                                 <div class="part">
@@ -476,7 +464,8 @@
                                     <input type="file" class="input-upload" id="chapter-upload-image-1"
                                            name="chapter-upload-image-1" accept=".jpg,.jpeg,.png">
                                     <input type="text" placeholder="Optional caption"
-                                           id="chapter-upload-image-caption-1" name="chapter-upload-image-caption-1">
+                                           id="chapter-upload-image-caption-1"
+                                           name="chapter-upload-image-caption-1">
                                 </div>
                                 <div class="part">
                                     <div class="trigger-upload trigger-upload-two">
@@ -488,7 +477,8 @@
                                     <input type="file" class="input-upload" id="chapter-upload-image-2"
                                            name="chapter-upload-image-2" accept=".jpg,.jpeg,.png">
                                     <input type="text" placeholder="Optional caption"
-                                           id="chapter-upload-image-caption-2" name="chapter-upload-image-caption-2">
+                                           id="chapter-upload-image-caption-2"
+                                           name="chapter-upload-image-caption-2">
                                 </div>
                                 <button class="disabled" disabled="">
                                     Submit
@@ -523,5 +513,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </body>
+</html>
