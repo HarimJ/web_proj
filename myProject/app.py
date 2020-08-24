@@ -12,7 +12,7 @@ def my_page():
 
 @app.route('/second.html')
 def my_page():
-    return render_template('second.html.html')
+    return render_template('second.html')
 
 @app.route('/third.html')
 def my_page():
