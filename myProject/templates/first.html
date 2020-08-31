@@ -8,20 +8,28 @@
     </head>
 
     <script type="text/javascript">
+        function resetDiary() {
+            console.log("?????????????????")
+            $('#chapter-answer-textarea').val('')
+        }
+
+
         function makeDiary() {
 
-            let firstdiary = $("#firstdiary").val();
+            let firstdiary = $('#chapter-answer-textarea').val();
 
             if (firstdiary == "") {
                 alert(" 내용을 입력해 주세요");
-                $("#firstdiary").focus();
+                $('#chapter-answer-textarea').focus();
                 return
             }
 
             $.ajax({
                 type: "POST",
                 url: "/diary_1",
-                data: {first: firstdiary},
+                data: {
+                    first: firstdiary
+                },
                 success: function (response) {
                     if (response["result"] == "success") {
                         alert(response["msg"]);
@@ -49,53 +57,6 @@
             transition: all 0.4s ease-out;
         }
 
-        .popup-wrapper .chapters-wrapper {
-            position: absolute;
-            top: 25px;
-            left: 25px;
-            width: calc(100% - 50px);
-            height: calc(100% - 50px);
-            background: #f8f6f0;
-            min-height: 660px;
-        }
-
-        /*.x-button-wrapper {*/
-        /*    position: absolute;*/
-        /*    right: 0;*/
-        /*    top: 0;*/
-        /*    height: 40px;*/
-        /*    width: 40px;*/
-        /*    cursor: pointer;*/
-        /*    z-index: 99999;*/
-        /*    background: #f8f6f0;*/
-        /*}*/
-
-        .chapter-content {
-            position: absolute;
-            top: 20px;
-            height: calc(100% - 40px);
-            left: 0;
-            width: 100%;
-            color: #322a23;
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-        }
-
-        .chapter-content .intro-wrapper {
-            position: absolute;
-            top: 0;
-            left: 20px;
-            width: calc(100% - 40px);
-            height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            visibility: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-            display: none;
-        }
 
         .chapter-content .left-side {
             position: absolute;
@@ -194,29 +155,6 @@
             transition: all 0.26s ease-out;
         }
 
-        .chapter-content .next {
-            position: absolute;
-            right: 50px;
-            bottom: 10px;
-            height: 20px;
-            width: 220px;
-            z-index: 9999;
-            cursor: pointer;
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-        }
-
-        .chapter-content .prev {
-            position: absolute;
-            left: 50px;
-            bottom: 10px;
-            height: 20px;
-            width: 190px;
-            z-index: 9999;
-            cursor: pointer;
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-        }
 
         .chapter-content .legend {
             position: absolute;
@@ -262,21 +200,6 @@
             display: none;
         }
 
-        .chapter-content .congrats-wrapper {
-            position: absolute;
-            top: 0;
-            left: 20px;
-            width: calc(100% - 40px);
-            height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.15);
-            visibility: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            -webkit-transform: translateY(30px);
-            -webkit-transition: all 0.4s ease-out;
-            transition: all 0.4s ease-out;
-            display: none;
-        }
 
         .chapter-content .left-side .questions-wrapper .question-wrapper.hidden {
             transform: translateY(30px);
@@ -294,154 +217,91 @@
     <body>
         <div class="chapters-wrapper">
             <div class="x-button-wrapper close-popup" data-target="chapters" style="z-index: 999">
-                <div class="x-button">
-                    <div class="line top"></div>
-                    <div class="line bottom"></div>
-                </div>
             </div>
-            <div class="image repeat"
-                 style="background: url(https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/creame-bg.jpg)"></div>
-            <div class="chapter-content" id="chapter-content">
+        </div>
+        <div class="image repeat"
+             style="background: url(https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/creame-bg.jpg)"></div>
+        <div class="chapter-content" id="chapter-content">
 
+            <div id="chapter-data" data-chapter="1" data-id="38"></div>
 
-                <div id="chapter-data" data-chapter="1" data-id="38"></div>
-
-                <div class="intro-wrapper" style="display: none;">
-                    <div class="center-wrapper ta-c wider">
-                        <div class="center">
-                            <img class="ribbon"
-                                 src="https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/chapter-1.png"
-                                 alt="">
-                            <h2>
-                                Standing on Their Shoulders: <br>How I Came to be Me </h2>
-                            <div class="text-and-image">
-                                <div class="text">
-                                    <h6>
-                                        <strong>
-                                            In so many ways we are the families we come from. And unless we share the
-                                            past
-                                            with the next generations, they won’t know on whose shoulders they stand.
-                                            Here’s
-                                            where we explore our family tree’s roots and its fruits. </strong>
-                                    </h6>
-                                </div>
-                                <div class="image-wrapper">
-                                    <div class="image bg"
-                                         style="background: url(https://lifejourneysmedia.com/wp-content/uploads/2018/04/b9fea3253ad617616a92f182783ea758.jpg)"></div>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="button go-orange start-chapter" id="start-chapter" style="margin-top: 20px"
-                                 data-id="" data-num="1">
-                                Start your LifeStory...
-                            </div>
-                        </div>
-                    </div>
+            <div class="left-side" style="">
+                <div class="chapter-headline">
+                    <img class="ribbon"
+                         src="https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/chapter-1.png"
+                         alt="">
+                    <h4>
+                        Standing on Their Shoulders: <br>How I Came to be Me </h4>
+                    <h5 class="smaller">
+                        <strong>
+                            Question <span id="question-num">1</span> of 2
+                        </strong>
+                    </h5>
                 </div>
-
-                <div class="left-side" style="">
-                    <div class="chapter-headline">
-                        <img class="ribbon"
-                             src="https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/chapter-1.png"
-                             alt="">
-                        <h4>
-                            Standing on Their Shoulders: <br>How I Came to be Me </h4>
-                        <h5 class="smaller">
+                <div class="questions-wrapper" id="questions-wrapper" data-pos="1" data-total="2">
+                    <div class="question-wrapper active" id="question-1" data-id="32">
+                        <h6 class="" style="font-size: 24px; line-height: 1.3">
                             <strong>
-                                Question <span id="question-num">1</span> of 2
-                            </strong>
-                        </h5>
-                    </div>
-                    <div class="questions-wrapper" id="questions-wrapper" data-pos="1" data-total="2">
-                        <div class="question-wrapper active" id="question-1" data-id="32">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    당신의 어렸을 적 이야기를 들려주세요 </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                                어렸을 적 할머니댁에 놀러가면 무엇을 했나요? </h6>
+                                당신의 어렸을 적 이야기를 들려주세요 </strong>
+                        </h6>
+                        <h6 style="font-size: 18px; margin-top: 5px">
+                           초등학교때 가장 기억에 남는 일은 무엇인가요? </h6>
 
-                            <div class="inspiration-wrapper">
-                                <div class="center-wrapper">
-                                    <div class="close close-inspiration"></div>
-                                    <div class="center">
-                                        <div class="text">
-                                            <!--                                            <i class="fa fa-quote-left"></i>-->
-                                            Lately I have developed a great love for family trees and have come to the
-                                            conclusion that, once you begin, you want to delve still deeper into the
-                                            past,
-                                            and you can keep on making fresh and interesting discoveries.
-                                            <div class="quotee">
-                                                Anne Frank
-                                            </div>
+                        <div class="inspiration-wrapper">
+                            <div class="center-wrapper">
+                                <div class="close close-inspiration"></div>
+                                <div class="center">
+                                    <div class="text">
+                                        <!--                                            <i class="fa fa-quote-left"></i>-->
+                                        Lately I have developed a great love for family trees and have come to the
+                                        conclusion that, once you begin, you want to delve still deeper into the
+                                        past,
+                                        and you can keep on making fresh and interesting discoveries.
+                                        <div class="quotee">
+                                            Anne Frank
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="question-wrapper hidden" id="question-2" data-id="33">
-                            <h6 class="" style="font-size: 24px; line-height: 1.3">
-                                <strong>
-                                    What are your most memorable stories about your paternal grandparents? What was your
-                                    father's experience growing up? </strong>
-                            </h6>
-                            <h6 style="margin-top: 5px">
-                                Where did your father’s family come from? What did they do for a living? </h6>
-                        </div>
-
-
                     </div>
 
+                    <div class="question-wrapper hidden" id="question-2" data-id="33">
+                        <h6 class="" style="font-size: 24px; line-height: 1.3">
+                            <strong>
+                                What are your most memorable stories about your paternal grandparents? What was your
+                                father's experience growing up? </strong>
+                        </h6>
+                        <h6 style="margin-top: 5px">
+                            Where did your father’s family come from? What did they do for a living? </h6>
+                    </div>
                 </div>
+            </div>
 
-                <div class="right-side" style="">
-                    <h5 class="smaller answer-headline">
-                        <strong>
-                            Your answer:
-                        </strong>
-                        <span class="open-popup delete" data-target="delete-answer">
+            <div class="right-side" style="">
+                <h5 class="smaller answer-headline">
+                    <strong>
+                        Your answer:
+                    </strong>
+                    <button onclick="resetDiary()" class="open-popup delete" data-target="delete-answer">
                             Delete
-                        </span>
-                    </h5>
-                    <textarea id="chapter-answer-textarea" placeholder="Start writing..."></textarea>
-                    <div class="review">
+                    </button>
+                </h5>
+
+                <textarea id="chapter-answer-textarea" placeholder="Start writing...">{{first_diary}}</textarea>
+                <div class="review">
                     <button onclick="makeDiary()" type="button" class="btn btn-primary">save</button>
                 </div>
+            </div>
+
+            <!--  -->
+
+            <div class="legend" id="chapter-legend">
+                <div class="ch-number active" data-target="1">
+                    1
                 </div>
-
-                <!--  -->
-
-
-                <div class="legend" id="chapter-legend">
-                    <div class="ch-number active" data-target="1">
-                        1
-                    </div>
-                    <div class="ch-number" data-target="2">
-                        2
-                    </div>
-                </div>
-
-                <!-- -->
-
-                <div class="congrats-wrapper">
-                    <div class="center-wrapper ta-c">
-                        <div class="center">
-                            <img class="ribbon"
-                                 src="https://lifejourneysmedia.com/wp-content/themes/lifejourneybooks/images/chapter-1.png"
-                                 alt="">
-                            <h4>
-                                <span>This is the end of our chapter:</span>
-                                <br>
-                                Standing on Their Shoulders: <br>How I Came to be Me </h4>
-                            <div class="button one-of-two go-orange close-popup" data-target="chapters" data-id=""
-                                 data-num="1">
-                                I'm done for today
-                            </div>
-                            <div class="button one-of-two go-orange next-chapter" data-id="" data-num="1">
-                                Continue to chapter 2
-                            </div>
-                        </div>
-                    </div>
+                <div class="ch-number" data-target="2">
+                    2
                 </div>
             </div>
         </div>
