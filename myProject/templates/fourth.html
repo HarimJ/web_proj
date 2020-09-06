@@ -1,212 +1,249 @@
 <html lang="ko">
-<head>
-    <meta charset="utf-8">
-    <title>Daily</title>
-    <script>var __adobewebfontsappname__ = "code"</script>
-    <script src="https://use.edgefonts.net/lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all.js"></script>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /*Just the background stuff */
-        span.s1 {
-            position: absolute;
-            top: 0;
-            font-size: 15rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: burlywood;
-        }
+        <title>Daily</title>
+        <script>var __adobewebfontsappname__ = "code"</script>
+        <script src="https://use.edgefonts.net/lato:n9,i4,n1,i7,i9,n7,i1,i3,n4,n3:all.js"></script>
+        <style>
 
-        span.s2 {
-            font-weight: 800;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            font-size: 15rem;
-            text-transform: uppercase;
-            color: burlywood;
-        }
+            /*Just the background stuff */
+            span.s1 {
+                position: absolute;
+                top: 0;
+                font-size: 15rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: burlywood;
+            }
 
-        /*body */
-        body {
-            background-color: saddlebrown;
-            font-family: "Roboto", sans-serif;
-        }
+            span.s2 {
+                font-weight: 800;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                font-size: 15rem;
+                text-transform: uppercase;
+                color: burlywood;
+            }
 
-        /* The card */
-        .card {
-            position: relative;
-            height: 600px;
-            width: 1200px;
-            margin: 200px auto;
-            background-color: #FFF;
-            -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-            box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-        }
+            /*body */
+            body {
+                background-color: saddlebrown;
+                font-family: "Roboto", sans-serif;
+            }
 
-        /* Image on the left side */
-        .thumbnail {
-            float: left;
-            position: relative;
-            left: 30px;
-            top: -30px;
-            height: 320px;
-            width: 530px;
-            -webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
-            box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
-            overflow: hidden;
-        }
+            /* The card */
+            .card {
+                position: relative;
+                height: 600px;
+                width: 1200px;
+                margin: 200px auto;
+                background-color: #FFF;
+                -webkit-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+                box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
+            }
 
-        /*object-fit: cover; */
-        /*object-position: center; */
-        img.left {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            height: auto;
-            width: 100%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
+            /* Image on the left side */
+            .thumbnail {
+                float: left;
+                position: relative;
+                left: 30px;
+                top: -30px;
+                height: 320px;
+                width: 530px;
+                -webkit-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+                box-shadow: 10px 10px 60px 0px rgba(0, 0, 0, 0.75);
+                overflow: hidden;
+            }
 
-        /* Right side of the card */
-        .right {
-            margin-left: 590px;
-            margin-right: 20px;
-        }
+            /*object-fit: cover; */
+            /*object-position: center; */
+            img.left {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                height: auto;
+                width: 100%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
 
-        h1 {
-            padding-top: 15px;
-            font-size: 1.3rem;
-            color: burlywood;
-        }
+            /* Right side of the card */
+            .right {
+                margin-left: 590px;
+                margin-right: 20px;
+            }
 
-        .author {
-            background-color: #9ECAFF;
-            height: 30px;
-            width: 110px;
-            border-radius: 20px;
-        }
+            h1 {
+                padding-top: 15px;
+                font-size: 1.3rem;
+                color: burlywood;
+            }
 
-        .author > img {
-            padding-top: 5px;
-            margin-left: 10px;
-            float: left;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-        }
+            .author {
+                background-color: #9ECAFF;
+                height: 30px;
+                width: 110px;
+                border-radius: 20px;
+            }
 
-        h2 {
-            padding-top: 8px;
-            margin-right: 6px;
-            text-align: right;
-            font-size: 0.8rem;
-        }
+            .author > img {
+                padding-top: 5px;
+                margin-left: 10px;
+                float: left;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+            }
 
-        .separator {
-            margin-top: 10px;
-            /*width: 100px;*/
-            /*height: 30px;*/
-            border: 1px solid #C3C3C3;
-        }
+            h2 {
+                padding-top: 8px;
+                margin-right: 6px;
+                text-align: right;
+                font-size: 0.8rem;
+            }
 
-        p {
-            text-align: justify;
-            padding-top: 10px;
-            font-size: 0.95rem;
-            line-height: 150%;
-            color: burlywood;
-        }
+            .separator {
+                margin-top: 10px;
+                /*width: 100px;*/
+                /*height: 30px;*/
+                border: 1px solid #C3C3C3;
+            }
 
-        /*form-control {*/
-        /*    text-align: justify;*/
-        /*    padding-top: 10px;*/
-        /*    width: 30px;*/
-        /*    height: 40px;*/
-        /*    font-size: 0.95rem;*/
-        /*    line-height: 150%;*/
-        /*    color: #4B4B4B;*/
-        /*}*/
+            p {
+                text-align: justify;
+                padding-top: 10px;
+                font-size: 0.95rem;
+                line-height: 150%;
+                color: burlywood;
+            }
 
-        /* DATE of release */
-        h5 {
-            position: absolute;
-            left: 30px;
-            bottom: -120px;
-            font-size: 4rem;
-            color: rosybrown;
-        }
+            /*form-control {*/
+            /*    text-align: justify;*/
+            /*    padding-top: 10px;*/
+            /*    width: 30px;*/
+            /*    height: 40px;*/
+            /*    font-size: 0.95rem;*/
+            /*    line-height: 150%;*/
+            /*    color: #4B4B4B;*/
+            /*}*/
 
-        h6 {
-            position: absolute;
-            left: 30px;
-            bottom: -55px;
-            font-size: 2rem;
-            color: #C3C3C3;
-        }
+            /* DATE of release */
+            h5 {
+                position: absolute;
+                left: 30px;
+                bottom: -120px;
+                font-size: 4rem;
+                color: rosybrown;
+            }
 
-        /* Those futur buttons */
-        ul {
-            margin-left: 250px;
-        }
+            h6 {
+                position: absolute;
+                left: 30px;
+                bottom: -55px;
+                font-size: 2rem;
+                color: #C3C3C3;
+            }
 
-        li {
-            display: inline;
-            list-style: none;
-            padding-right: 40px;
-            color: #7B7B7B;
-        }
+            /* Those futur buttons */
+            ul {
+                margin-left: 250px;
+            }
 
-        /* Floating action button */
-        .fab {
-            position: absolute;
-            right: 50px;
-            bottom: -40px;
-            box-sizing: border-box;
-            padding-top: 23px;
-            background-color: #1A237E;
-            width: 80px;
-            height: 80px;
-            color: white;
-            font-size: 24px;
-            text-align: center;
-            border-radius: 50%;
-            -webkit-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
-            box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
-        }
-    </style>
+            li {
+                display: inline;
+                list-style: none;
+                padding-right: 40px;
+                color: #7B7B7B;
+            }
 
-</head>
-<body>
-    <div class="fond"><span class="s1">Daily</span><span class="s2">Record</span></div>
-    <div class="card">
-        <div class="thumbnail"><img class="left"
-                                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/typewriter-1-776x968.jpg"/>
-        </div>
-        <div class="right">
-            <h1>What a special day today!</h1>
-            <div class="author"><img
-                    src="https://i7.uihere.com/icons/420/201/129/character-b05c73082fe67dd9039b25171a08a70d.png"/>
-                <h2>your name</h2>
+            /* Floating action button */
+            .fab {
+                position: absolute;
+                right: 50px;
+                bottom: -40px;
+                box-sizing: border-box;
+                padding-top: 23px;
+                background-color: #1A237E;
+                width: 80px;
+                height: 80px;
+                color: white;
+                font-size: 24px;
+                text-align: center;
+                border-radius: 50%;
+                -webkit-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
+                box-shadow: 10px 10px 50px 0px rgba(0, 0, 0, 0.75);
+            }
+        </style>
+
+<!--        <script type="text/javascript">-->
+
+<!--            function makeDiary() {-->
+
+<!--                let firstdiary = $('#chapter-answer-textarea').val();-->
+
+<!--                if (firstdiary == "") {-->
+<!--                    alert(" 내용을 입력해 주세요");-->
+<!--                    $('#chapter-answer-textarea').focus();-->
+<!--                    return-->
+<!--                }-->
+
+<!--                $.ajax({-->
+<!--                    type: "POST",-->
+<!--                    url: "/diary_1",-->
+<!--                    data: {-->
+<!--                        first: firstdiary-->
+<!--                    },-->
+<!--                    success: function (response) {-->
+<!--                        if (response["result"] == "success") {-->
+<!--                            alert(response["msg"]);-->
+<!--                            window.location.reload();-->
+<!--                        }-->
+<!--                    }-->
+<!--                })-->
+<!--            }-->
+
+
+<!--        </script>-->
+    </head>
+    <body>
+        <div class="fond"><span class="s1">Daily</span><span class="s2">Record</span></div>
+        <div class="card">
+            <div class="thumbnail"><img class="left"
+                                        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74321/typewriter-1-776x968.jpg"/>
             </div>
-            <div class="separator"></div>
-            <!--            <input type="text" autoFocus/>-->
-            <textarea class="form-control" rows="30" cols="80" autofocus></textarea>
+            <div class="right">
+                <h1>What a special day today!</h1>
+                <div class="author"><img
+                        src="https://i7.uihere.com/icons/420/201/129/character-b05c73082fe67dd9039b25171a08a70d.png"/>
+                    <h2>your name</h2>
+                </div>
+                <div class="separator"></div>
+                <!--            <input type="text" autoFocus/>-->
+                <textarea id="chapter-answer-textarea"  rows="30" cols="80"></textarea>
+                <button class = "fab"  type="button" >save</button>
+
+<!--  db연결 하려면 이렇게. script 작동시켜서 하기-->
+<!--                <textarea id="chapter-answer-textarea"  rows="30" cols="80">{{first_diary}}</textarea>-->
+<!--                <button class = "fab" onclick="makeDiary()" type="button" >save</button>-->
+
+            </div>
+            <h5 id="date" class="date"></h5>
+            <!--    <h6 id="time" class="time"></h6>-->
+            <script src="../static/dateTime.js"></script>
+            <ul>
+                <li><i class="fa fa-eye fa-2x"></i></li>
+                <li><i class="fa fa-heart-o fa-2x"></i></li>
+                <li><i class="fa fa-envelope-o fa-2x"></i></li>
+                <li><i class="fa fa-share-alt fa-2x"></i></li>
+            </ul>
         </div>
-        <h5 id="date" class="date"></h5>
-        <!--    <h6 id="time" class="time"></h6>-->
-        <script src="../static/dateTime.js"></script>
-        <ul>
-            <li><i class="fa fa-eye fa-2x"></i></li>
-            <li><i class="fa fa-heart-o fa-2x"></i></li>
-            <li><i class="fa fa-envelope-o fa-2x"></i></li>
-            <li><i class="fa fa-share-alt fa-2x"></i></li>
-        </ul>
-        <div class="fab"><i class="fa fa-arrow-down fa-3x"><strong>save</strong></i></div>
-    </div>
-</body>
+    </body>
 </html>
