@@ -1,0 +1,52 @@
+ul = unordered list
+``  : 안에 변수들 다양하게 들어가서 값을 호출한다
+
+
+let nname = $('#input-name').val();
+                if (nname == '') {
+                    alert('이름을 입력하세요');
+                    return;
+                }
+
+
+Ajax 통신 기초
+
+CRUD
+create (post)
+read (get)**
+update (put)
+delete (del)
+
+
+AI : application interface
+비동기(Asynchronous)
+
+ why,,doesnt work,,,,ㅜㅜ
+
+
+ 리스트는 항상 반복문이다!
+  let articles = response['articles']
+                        for (let i = 0; i < articles.length; i++){
+                            let article = articles[i]
+
+숙제 + 설치하기 3개 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

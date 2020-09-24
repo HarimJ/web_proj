@@ -1,0 +1,11 @@
+$('#post-url').val()    : 검색창에 적은거 출력
+"dfdfdsadfasdfa"
+
+
+if ($('#post-box').css('display') == 'block')   <- block // none  ???
+
+
+
+숙제 (7월 20일)
+[20분]: Javascript + jQuery 연습하기
+😎문제뱅크

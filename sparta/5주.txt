@@ -1,0 +1,23 @@
+focus() : 페이지 열자마자 커서가 들어가는 곳
+
+
+airbnb 코딩 스타일이 유명하다 
+나중에 보기
+https://github.com/airbnb/javascript
+
+다음주 
+직사각형 레이아웃
+피피티 만들기
+
+
+
+
+
+
+
+
+
+
+
+
+
